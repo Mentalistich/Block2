@@ -62,6 +62,7 @@ func (l Library) ReturnBook(title string) error {
 		if b.title == title {
 			b.copies++
 			return nil
+
 		}
 	}
 	return errors.New("There is no such book in the library")

@@ -69,6 +69,7 @@ func (d Dog) Play() {
 	} else {
 		d.Fatigue += 25
 		fmt.Println("He is happy")
+
 	}
 }
 

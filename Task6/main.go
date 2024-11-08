@@ -12,8 +12,9 @@ type Producter interface {
 }
 
 type PhysicalProduct struct {
-	Name         string
-	Price        float64
+	Name  string
+	Price float64
+
 	Weight       float64
 	ShippingCost float64
 }

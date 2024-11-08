@@ -72,6 +72,7 @@ func (z Zoo) ScheduleEvent(name string, animals []Animal) []Animal {
 			fmt.Println(animals[i].Name + " live in water,he will didnt participate event")
 		} else {
 			members = append(members, animals[i])
+
 		}
 	}
 	return members
