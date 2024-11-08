@@ -57,6 +57,7 @@ func (e *Employee) CalculateSalary() {
 		e.Salary = e.Salary + 1.25*float64(e.Experience)*1.1
 	} else {
 		e.Salary = e.Salary + 1.25*float64(e.Experience)
+
 	}
 }
 

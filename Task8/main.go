@@ -14,6 +14,9 @@ type User struct {
 }
 
 func (u *User) Authenticate(password string) {
+	if u.Password == "" {
+		u.ResetPassword()
+	}
 	if u.Password == password {
 		fmt.Println("Success")
 	} else {
@@ -32,7 +35,7 @@ func (u *User) ChangePassword(newPassword string) {
 }
 
 func (u *User) ResetPassword() {
-	if u.FailedLoginAttemps > 1 {
+	if u.FailedLoginAttemps > 1 || u.Password == "" {
 		var input string
 		fmt.Println("Enter a new password")
 		fmt.Scanln(&input)
@@ -70,8 +73,11 @@ func (u *User) SendOTP() {
 		}
 		keyBuilder.WriteByte(charset[int(b)%len(charset)])
 	}
+	//или вот так
+	//temp:=u.Password
 	u.Password = keyBuilder.String()
 	u.Authenticate(u.Password)
+	//u.Password=temp
 	u.Password = ""
 }
 

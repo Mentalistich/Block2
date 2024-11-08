@@ -105,18 +105,21 @@ func main() {
 		OwnerHistory: make(map[time.Time]string),
 	}
 	account1.Transfer(&account2, 10)
-	time1, err := time.Parse("02-01-2006 15:04:05", "23-10-2024 14:30:00")
+	time1, err := time.Parse("02-01-2006 15:04:05", "24-10-2024 18:30:00")
 	if err != nil {
 		errors.New("Invalid time format")
 	}
-	time2, err := time.Parse("02-01-2006 15:04:05", "24-10-2024 14:30:00")
+	time2, err := time.Parse("02-01-2006 15:04:05", "25-10-2024 22:30:00")
 	if err != nil {
 		errors.New("Invalid time format")
 	}
 
 	account1.CalculateInterest()
 	account1.Deposit(15)
-	account1.GetBalance()
+	//account1.GetBalance()
+	//time1 := time.Now()
+	account1.Deposit(25)
+	//time2 := time.Now()
 	account1.GenerateStatement(time1, time2)
 
 }
